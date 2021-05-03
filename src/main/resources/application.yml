@@ -12,7 +12,7 @@ spring:
         web-allow-others: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show_sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
