@@ -1,4 +1,4 @@
-package ru.otus.yeap.model;
+package ru.otus.yeap.entities;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -10,15 +10,12 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "products")
+@Table(name = "categories")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Product {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     Long id;
     String name;
-    String description;
-    @ManyToOne
-    Category category;
 }

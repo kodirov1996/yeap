@@ -1,9 +1,8 @@
-package ru.otus.yeap.model;
+package ru.otus.yeap.entities;
 
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -11,14 +10,16 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "deal_details")
+@Table(name = "products")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class DealDetail {
+public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     Long id;
-    @ToString.Exclude
     @ManyToOne
-    Deal deal;
+    Product product;
+    @ManyToOne
+    Portion portion;
+    Double price;
 }

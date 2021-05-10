@@ -1,4 +1,4 @@
-package ru.otus.yeap.model;
+package ru.otus.yeap.entities;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -6,18 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "deals")
+@Table(name = "products")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Deal {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "serial")
     Long id;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    List<DealDetail> dealDetailList;
+    String name;
+    String description;
+    @ManyToOne
+    Category category;
 }
